@@ -1,0 +1,72 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Vessel Positions API",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/vesselpositions": {
+            "get": {
+                "tags": [],
+                "summary": "Retrieve vessel positions (supports filtering)",
+                "description": "Retrieve vessel position by mmsi, latitude/longitude range, timestamp range. If no filters provided, the response returns all vessel positions.",
+                "operationId": "vesselPositions",
+                "parameters": [
+                    {
+                        "name": "mmsi",
+                        "in": "query",
+                        "description": "Filter by Vessel ID (integer). Example mmsi=247039300",
+                        "required": false
+                    },
+                    {
+                        "name": "lon_from",
+                        "in": "query",
+                        "description": "Filter by minimum longitute (float). Example lon_from=15.4415",
+                        "required": false
+                    },
+                    {
+                        "name": "lon_to",
+                        "in": "query",
+                        "description": "Filter by maximum longitude (float). Example lon_to=19.3214",
+                        "required": false
+                    },
+                    {
+                        "name": "lat_from",
+                        "in": "query",
+                        "description": "Filter by minimum latitude (float). Example lat_from=34.67008",
+                        "required": false
+                    },
+                    {
+                        "name": "lat_to",
+                        "in": "query",
+                        "description": "Filter by maximum latitude (float). Example lat_to=41.2323",
+                        "required": false
+                    },
+                    {
+                        "name": "time_from",
+                        "in": "query",
+                        "description": "Filter by minimum timestamp (integer). Example time_from=1372666500",
+                        "required": false
+                    },
+                    {
+                        "name": "time_to",
+                        "in": "query",
+                        "description": "Filter by maximum timestamp (integer). Example time_to=1372683960",
+                        "required": false
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Returns the ships positions in various formats, according to the Content-Type header of the request."
+                    },
+                    "429": {
+                        "description": "Returned when max attempts limit is reached (default 10 per minute per ip address."
+                    },
+                    "406": {
+                        "description": "Returned when a not supported content-type for the response is requested."
+                    }
+                }
+            }
+        }
+    }
+}

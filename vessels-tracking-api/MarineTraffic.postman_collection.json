@@ -1,0 +1,89 @@
+{
+	"info": {
+		"_postman_id": "9b3ceeff-4dd5-4a29-8af4-b249128a7567",
+		"name": "MarineTraffic",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9935642"
+	},
+	"item": [
+		{
+			"name": "VesselPositions GET",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json,application/ld+json,application/xml,text/csv",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "text/csv",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/ld+json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/vesselpositions?mmsi=247039300,311040700&lon_from=16&lon_to=17&lat_from=40&lat_to=60&time_from=1372700220&time_to=1372700400",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"vesselpositions"
+					],
+					"query": [
+						{
+							"key": "mmsi",
+							"value": "247039300,311040700"
+						},
+						{
+							"key": "lon_from",
+							"value": "16"
+						},
+						{
+							"key": "lon_to",
+							"value": "17"
+						},
+						{
+							"key": "lat_from",
+							"value": "40"
+						},
+						{
+							"key": "lat_to",
+							"value": "60"
+						},
+						{
+							"key": "time_from",
+							"value": "1372700220"
+						},
+						{
+							"key": "time_to",
+							"value": "1372700400"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
